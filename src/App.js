@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Player from './Player/Player';
 import { sonsdata } from './Player/audios';
@@ -9,11 +9,32 @@ function App() {
   const [currentSong, setCurrentSong]= useState(sonsdata[0]);
 
   const audioElem = useRef();
+
+  // Lire ou mettre en pause en fonction du changement de isplaying
+  useEffect(()=>{
+    if(isplaying){
+      audioElem.current.play();
+    }
+    else{
+      audioElem.current.pause();
+    }
+  },[isplaying])
   return (
-    <div className="App">
-      <audio src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/fd/bb/38/fdbb38d2-073d-4bc7-68c4-348a0be6d560/mzaf_4150435585996894188.plus.aac.p.m4a" ref={audioElem}/>
-      <Player songs={songs} setSongs={setSongs} isplaying={isplaying} setIsplaying={setIsplaying} audioElem={audioElem}/>
+    <div className='container'>
+      <div className="App">
+        <div className='lecture'>
+          
+          <audio src={currentSong.url} ref={audioElem}/>
+          <Player songs={songs} setSongs={setSongs} isplaying={isplaying} setIsplaying={setIsplaying} audioElem={audioElem} currentSong={currentSong} setCurrentSong={setCurrentSong}/>
+        </div>
+        <div className='liste'>
+          <div>
+            Julio
+          </div> 
+        </div>
+      </div>
     </div>
+
   );
 }
 

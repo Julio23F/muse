@@ -1,5 +1,17 @@
-.App {
+.container{
   text-align: center;
+  background-color: #61dafb;
+  padding: 5%;
+}
+.App {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 1px 5px 20px rgb(168, 168, 168);
+  border-radius: 5px;
+  padding: 15px;
+}
+.lecture{
+  width: 100%;
 }
 
 .App-logo {
@@ -36,3 +48,5 @@
     transform: rotate(360deg);
   }
 }
+
+
