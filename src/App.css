@@ -1,52 +1,31 @@
 .container{
   text-align: center;
-  background-color: #61dafb;
   padding: 5%;
+}
+body{
+  background: linear-gradient(70deg, #61dafb, rgb(255, 189, 65));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
 }
 .App {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  box-shadow: 1px 5px 20px rgb(168, 168, 168);
+  box-shadow: 1px 5px 10px #9ba8ac;
   border-radius: 5px;
-  padding: 15px;
+  padding: 35px;
+  background-color: transparent;
 }
 .lecture{
   width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
 
 

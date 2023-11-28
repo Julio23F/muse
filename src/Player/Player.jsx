@@ -25,6 +25,7 @@ export default function Player({audioElem, isplaying, setIsplaying, currentSong,
 
         // Revenir au début de la lecture dans toutes les situations
         audioElem.current.currentTime = 0;
+        
     }
     const After=()=>{
         const index = songs.findIndex(x => x.title == currentSong.title);
@@ -37,6 +38,7 @@ export default function Player({audioElem, isplaying, setIsplaying, currentSong,
 
         // Revenir au début de la lecture dans toutes les situations
         audioElem.current.currentTime = 0;
+        
     }
 
     return (
@@ -48,9 +50,9 @@ export default function Player({audioElem, isplaying, setIsplaying, currentSong,
                 <input type="range" name="" id="" />
             </div>
             <div className="controls">
-                <IoPlaySkipBackSharp onClick={Before}/>
-                {isplaying ? <FaPause onClick={PlayPause}/> : <FaPlay onClick={PlayPause}/>}
-                <IoPlaySkipForward onClick={After}/>
+                <IoPlaySkipBackSharp className="control" onClick={Before}/>
+                {isplaying ? <FaPause className="control" onClick={PlayPause}/> : <FaPlay className="control" onClick={PlayPause}/>}
+                <IoPlaySkipForward className="control" onClick={After}/>
             </div>
         </div>
     )

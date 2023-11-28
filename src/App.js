@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Player from './Player/Player';
 import { sonsdata } from './Player/audios';
+import Image from './Player/Image';
 
 function App() {
   const [songs, setSongs]= useState(sonsdata);
@@ -23,7 +24,7 @@ function App() {
     <div className='container'>
       <div className="App">
         <div className='lecture'>
-          
+          <Image currentSong={currentSong} isplaying={isplaying}/>
           <audio src={currentSong.url} ref={audioElem}/>
           <Player songs={songs} setSongs={setSongs} isplaying={isplaying} setIsplaying={setIsplaying} audioElem={audioElem} currentSong={currentSong} setCurrentSong={setCurrentSong}/>
         </div>
