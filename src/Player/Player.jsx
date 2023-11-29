@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './player.scss';
 import { FaPlay } from "react-icons/fa6";
 import { FaPause } from "react-icons/fa";
@@ -7,7 +7,8 @@ import { IoPlaySkipBackSharp } from "react-icons/io5";
 
 
 
-export default function Player({audioElem, isplaying, setIsplaying, currentSong, setCurrentSong, songs}){
+export default function Player({audioElem, isplaying, setIsplaying, currentSong, setCurrentSong, songs, duration, setDuration, currentime, setCurrentime}){
+
 
     // Modifier l'état de isplaying quand on clique
     const PlayPause=()=>{
@@ -44,16 +45,40 @@ export default function Player({audioElem, isplaying, setIsplaying, currentSong,
         
     }
 
+    const handleSeek=(e)=>{
+        audioElem.current.currentTime = e.target.value;
+        setCurrentime(e.target.value)
+    }
+
+    const handleTimeUpdate=()=>{
+        setCurrentime(audioElem.current.currentTime)
+        setDuration(audioElem.current.duration)
+    }
+
+    useEffect(()=>{
+        audioElem.current.addEventListener("timeupdate",handleTimeUpdate);
+        return ()=>{
+            audioElem.current.removeEventListener("timeupdate",handleTimeUpdate)
+        }
+    },[])
+
+    const formatDuration=(temps)=>{
+        const minutes = Math.floor(temps / 60);
+        const seconds = Math.floor(temps % 60);
+        const formatSeconds = seconds.toString().padStart(2, "0");
+        return minutes+":"+formatSeconds
+    }
+
     return (
         <div className="player_container">
             <div className="title">
                 <p>{currentSong.title}</p>
             </div>
             <div className="navigation">
-                <input type="range" className="barre" />
+                <input type="range" className="barre" min={0} max={duration} value={currentime} onChange={handleSeek}/>
                 <div className="duration">
-                    <span className="left">0:2</span>
-                    <span className="right">3:25</span>
+                    <span className="left">{formatDuration(currentime)}</span>
+                    <span className="right">{formatDuration(duration)}</span>
                 </div>
             </div>
             <div className="controls">

@@ -9,6 +9,8 @@ function App() {
   const [songs, setSongs]= useState(sonsdata);
   const [isplaying, setIsplaying]= useState(false);
   const [currentSong, setCurrentSong]= useState(sonsdata[0]);
+  const [currentime, setCurrentime]= useState(0);
+  const [duration, setDuration]= useState(0);
 
   const audioElem = useRef();
 
@@ -37,7 +39,19 @@ function App() {
         <div className='lecture'>
           <Image currentSong={currentSong} isplaying={isplaying}/>
           <audio src={currentSong.url} ref={audioElem}/>
-          <Player songs={songs} setSongs={setSongs} isplaying={isplaying} setIsplaying={setIsplaying} audioElem={audioElem} currentSong={currentSong} setCurrentSong={setCurrentSong}/>
+          <Player 
+            songs={songs} 
+            setSongs={setSongs} 
+            isplaying={isplaying} 
+            setIsplaying={setIsplaying} 
+            audioElem={audioElem} 
+            currentSong={currentSong} 
+            setCurrentSong={setCurrentSong}
+            duration={duration}
+            setDuration={setDuration}
+            currentime={currentime}
+            setCurrentime={setCurrentime}
+          />
         </div>
         <div className='liste'>
           <Playlist/>
