@@ -3,7 +3,7 @@ import './App.css';
 import Player from './Player/Player';
 import { sonsdata } from './Player/audios';
 import Image from './Player/Image';
-import Playlist from './components/Playlist';
+import Playlist from './components/PlayList';
 
 function App() {
   const [songs, setSongs]= useState(sonsdata);

@@ -3,7 +3,7 @@
   padding: 5%;
 }
 body{
-  background: linear-gradient(70deg, #61dafb, rgb(255, 189, 65));
+  background: linear-gradient(70deg,#001822ff, #61dafb);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,7 @@ body{
 .App {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  box-shadow: 1px 5px 10px #9ba8ac;
+  box-shadow: 1px 5px 10px rgb(1, 69, 99);
   border-radius: 5px;
   padding: 35px;
   background-color: transparent;

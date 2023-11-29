@@ -50,7 +50,11 @@ export default function Player({audioElem, isplaying, setIsplaying, currentSong,
                 <p>{currentSong.title}</p>
             </div>
             <div className="navigation">
-                <input type="range" name="" id="" />
+                <input type="range" className="barre" />
+                <div className="duration">
+                    <span className="left">0:2</span>
+                    <span className="right">3:25</span>
+                </div>
             </div>
             <div className="controls">
                 <IoPlaySkipBackSharp className="control" onClick={Before}/>
