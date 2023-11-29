@@ -18,8 +18,8 @@
   }
   .containImage{
     border-radius: 50%;
-    width: 170px;
-    height: 170px;
+    width: 200px;
+    height: 200px;
     justify-content: center;
     overflow: hidden;
     margin: 0 auto;
@@ -37,8 +37,7 @@
     width: 230px;
     height: 230px;
     border-radius: 50%;
-    // animation: 1s linear infinite alternate boxMagic,
-    //             4s linear infinite annimRotation;
+    animation: 4s linear infinite annimRotation;
   }
   @keyframes boxMagic {
     from {

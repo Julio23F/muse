@@ -3,6 +3,7 @@ import './App.css';
 import Player from './Player/Player';
 import { sonsdata } from './Player/audios';
 import Image from './Player/Image';
+import Playlist from './components/Playlist';
 
 function App() {
   const [songs, setSongs]= useState(sonsdata);
@@ -20,6 +21,16 @@ function App() {
       audioElem.current.pause();
     }
   },[isplaying])
+
+  // Lire ou mettre en pause en fonction de l'état de isplaying avant de mettre sur next ou before
+  useEffect(()=>{
+    if(isplaying){
+      audioElem.current.play();
+    }
+    else{
+      audioElem.current.pause();
+    }
+  },[currentSong])
   return (
     <div className='container'>
       <div className="App">
@@ -29,9 +40,7 @@ function App() {
           <Player songs={songs} setSongs={setSongs} isplaying={isplaying} setIsplaying={setIsplaying} audioElem={audioElem} currentSong={currentSong} setCurrentSong={setCurrentSong}/>
         </div>
         <div className='liste'>
-          <div>
-            Julio
-          </div> 
+          <Playlist/>
         </div>
       </div>
     </div>

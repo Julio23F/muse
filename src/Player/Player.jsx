@@ -4,7 +4,7 @@ import { FaPlay } from "react-icons/fa6";
 import { FaPause } from "react-icons/fa";
 import { IoPlaySkipForward } from "react-icons/io5";
 import { IoPlaySkipBackSharp } from "react-icons/io5";
-import { sonsdata } from "./audios";
+
 
 
 export default function Player({audioElem, isplaying, setIsplaying, currentSong, setCurrentSong, songs}){
@@ -14,6 +14,8 @@ export default function Player({audioElem, isplaying, setIsplaying, currentSong,
         
         setIsplaying(!isplaying)
     }
+    let style;
+
     const Before=()=>{
         const index = songs.findIndex(x => x.title == currentSong.title);
         if( index == 0){
@@ -25,6 +27,7 @@ export default function Player({audioElem, isplaying, setIsplaying, currentSong,
 
         // Revenir au début de la lecture dans toutes les situations
         audioElem.current.currentTime = 0;
+
         
     }
     const After=()=>{
